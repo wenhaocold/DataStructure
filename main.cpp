@@ -1,15 +1,5 @@
 #include <iostream>
-#include "Object.h"
 #include "SmartPointer.h"
-#include "Exception.h"
-#include "SeqList.h"
-#include "StaticSeqList.h"
-#include "DynamicSeqList.h"
-#include "StaticArray.h"
-#include "DynamicArray.h"
-#include "LinkList.h"
-#include "SingleLinkList.h"
-#include "StaticLinkList.h"
 
 
 using namespace std;
@@ -47,10 +37,8 @@ public:
 
 int main()
 {
-    StaticLinkList<int, 5> sll;
-
-    for (int i = 0; i < 6; i++)
-    {
-        sll.insert(i, i);
-    }
+    int a = 0;
+     SmartPointer<int> p(&a);
+    *p = 99;
+    cout << "a = " << a << endl;
 }

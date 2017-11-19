@@ -14,7 +14,7 @@ namespace WHLib
         _msg = nullptr;
         _location = nullptr;
         if (msg != nullptr)
-            _msg = strdup(msg);
+            _msg = strdup(msg);     //为_msg分配足够的内存空间，然后进行copy
 
         if (file != nullptr) {
             char l[20];
