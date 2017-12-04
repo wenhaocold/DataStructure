@@ -29,9 +29,12 @@ namespace WHLib
         {
             if (this != &obj)
             {
+                T* toDel = this->_pointer;
                 this->_pointer = obj._pointer;
                 const_cast<SmartPointer<T>&>(obj)._pointer = nullptr;
+                delete toDel;
             }
+            return *this;
         }
 
         ~SmartPointer<T>()
