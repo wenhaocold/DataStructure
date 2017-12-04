@@ -45,11 +45,16 @@ namespace WHLib
         virtual Node* createNode() = 0;
         virtual void destroy(Node* p) = 0;
 
+        Node* _currentNode;
+        int _step;
+
     public:
 
         LinkList<T>()
         {
             _length = 0;
+            _step = 1;
+            _currentNode = nullptr;
             _header._next = nullptr;
         }
 
@@ -206,6 +211,34 @@ namespace WHLib
                 THROW_EXCEPTION(Exception, "clear LinkList error");
             }
         }
+
+        bool begin(int pos = 0)
+        {
+            bool ret = (pos >= 0 && pos <_length);
+            if (ret) {
+                _currentNode = getCurrentPre(pos)->_next;
+            }
+            return ret;
+        }
+
+        void next(int step = 1)
+        {
+            for (int i = 0; i < step && !end(); i++)
+            {
+                _currentNode = _currentNode->_next;
+            }
+        }
+
+        bool end()
+        {
+            return _currentNode == nullptr;
+        }
+
+        Node* currentNode()
+        {
+            return _currentNode;
+        }
+
     };
 }
 
