@@ -1,21 +1,25 @@
 #include <iostream>
 #include "SingleLinkList.h"
+#include "SmartPointer.h"
 
 using namespace std;
 using namespace WHLib;
 
+class Test {
+
+public:
+    Test() {
+        cout << "Test()" << endl;
+    }
+
+    ~Test() {
+        cout << "~Test()" << endl;
+    }
+};
+
 int main()
 {
-    SingleLinkList<int> ll;
+    SmartPointer<Test> t = new Test;
 
-    for (int i = 0; i < 5; i++)
-    {
-        ll.insert(i, i);
-    }
-
-    for (ll.begin(); !ll.end(); ll.next())
-    {
-        cout << ll.currentNode()->_value << endl;
-
-    }
+    cout << "=======" << endl;
 }
