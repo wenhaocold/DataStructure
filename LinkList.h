@@ -104,6 +104,9 @@ namespace WHLib
                     Node* toDel = currentPre->_next;
                     currentPre->_next = toDel->_next;
                     _length--;
+                    if (_currentNode == toDel) {
+                        _currentNode = toDel->_next;
+                    }
                     destroy(toDel);
                 }
                 else

@@ -40,6 +40,10 @@ namespace WHLib {
             if (0 == pos) {
                 lastToFirst();
             }
+            if (0 == this->_length) {
+                this->_currentNode = nullptr;
+                this->_header._next = nullptr;
+            }
             return ret;
         }
 
@@ -60,6 +64,9 @@ namespace WHLib {
             for (int i = 0; i < this->_length; i++) {
                 if (obj == current->_value) {
                     return i;
+                }
+                else {
+                    current = current->_next;
                 }
             }
             return -1;

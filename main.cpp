@@ -31,21 +31,29 @@ void test(int num, int step) {
     cl.begin(0);
 
     while (!cl.end()) {
-//        cl.next()
+        cl.next(step - 1);
+        int temp = cl.currentNode()->_value;
+        cl.remove(cl.find(cl.currentNode()->_value));
+        cout << "kill: " << temp << endl;
     }
 }
 
 
 int main()
 {
-    CircleLinkList<int> cl;
+     test(10, 3);
+//    CircleLinkList<int> cl;
+//    for (int i = 0; i < 5; i++) {
+//        cl.insert(i, i);
+//    }
+////    cl.begin();
+//    cl.remove(0);
+//    cl.remove(0);
+//    cl.remove(0);
+//    cl.remove(0);
+//    cl.remove(0);
 
-    for (int i = 0; i < 5; i++) {
-        cl.insert(i, i);
-    }
-
-
-    cl.remove(2);
 
     return 0;
+
 }
