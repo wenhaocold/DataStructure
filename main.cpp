@@ -2,6 +2,8 @@
 #include "SingleLinkList.h"
 #include "SmartPointer.h"
 #include "SharedPointer.h"
+#include "CircleLinkList.h"
+
 
 using namespace std;
 using namespace WHLib;
@@ -19,16 +21,31 @@ public:
     }
 };
 
+void test(int num, int step) {
+    CircleLinkList<int> cl;
+
+    for (int i = 0; i < num; i++) {
+        cl.insert(i, i + 1);
+    }
+
+    cl.begin(0);
+
+    while (!cl.end()) {
+//        cl.next()
+    }
+}
+
+
 int main()
 {
-    SharedPointer<Test> sp1 = new Test(9);
-    SharedPointer<Test> sp2 = sp1;
-    SharedPointer<Test> sp3 = nullptr;
+    CircleLinkList<int> cl;
 
-    sp3 = sp2;
-    cout << sp1->_value << endl;
-    cout << sp2->_value << endl;;
-    cout << sp3->_value << endl;;
+    for (int i = 0; i < 5; i++) {
+        cl.insert(i, i);
+    }
+
+
+    cl.remove(2);
 
     return 0;
 }
